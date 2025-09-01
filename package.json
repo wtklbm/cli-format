@@ -1,5 +1,32 @@
 {
-    "name": "format",
+    "name": "@wtklbm/cli-format",
+    "version": "0.1.0",
+    "homepage": "https://github.com/wtklbm/cli-format",
+    "author": {
+        "name": "wtklbm",
+        "email": "wtklbm@gmail.com",
+        "url": "https://github.com/wtklbm"
+    },
+    "contributors": [],
+    "description": "None",
+    "main": "dist/index.js",
+    "files": [
+        "dist"
+    ],
+    "license": "MIT",
+    "engines": {},
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/wtklbm/cli-format.git"
+    },
+    "bugs": {
+        "url": "https://github.com/wtklbm/cli-format/issues"
+    },
+    "keywords": [],
+    "packageManager": "npm@latest",
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/"
+    },
     "bin": {
         "format": "./bin/format.js"
     },
