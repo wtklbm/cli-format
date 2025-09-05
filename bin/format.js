@@ -1,22 +1,62 @@
 #!/usr/bin/env node
+
 const { spawn } = require('child_process');
+const minimist = require('minimist');
 
-// 获取命令行参数（排除前两个元素：node 路径和脚本路径）
-let args = process.argv.slice(2);
+const argv = minimist(process.argv.slice(2), {
+    boolean: ['autocorrect', 'help', 'h'],
+    alias: {
+        h: 'help'
+    }
+});
+let args = argv._;
 
-// 如果没有传递路径参数，则默认格式化当前目录
-if (args.length === 0) {
-  args = ['.'];
+if (argv.help) {
+    showHelp();
+    process.exit(0);
 }
 
-// 显示将要格式化的路径
-//console.log(`Formatting: ${args.join(' ')}`);
+if (args.length === 0) {
+    args = ['.'];
+}
 
-// 使用 npx 执行 prettier 命令
-const child = spawn('npx', ['prettier', '--write', ...args], {
-  stdio: 'inherit',  // 继承父进程的输入输出
-  cwd: process.cwd() // 使用当前工作目录
-});
+function showHelp() {
+    console.log(`
+Usage: format [options] [files...]
 
-// 当子进程退出时，以相同的退出码退出当前进程
-child.on('exit', code => process.exit(code));
+Options:
+  --autocorrect    Run autocorrect before prettier
+  -h, --help       Show help information
+
+Examples:
+  format                    Format all files in current directory
+  format file.js            Format specific file
+  format --autocorrect      Run autocorrect then prettier
+  format --autocorrect dir  Run autocorrect then prettier on directory
+`);
+}
+
+function runPrettier() {
+    const prettier = require.resolve('.bin/prettier', {
+        paths: [process.cwd()]
+    });
+    const child = spawn(prettier, ['--write', ...args], {
+        stdio: 'inherit',
+        cwd: process.cwd()
+    });
+
+    child.on('exit', code => process.exit(code));
+}
+
+if (argv.autocorrect) {
+    const autocorrect = require.resolve('.bin/autocorrect', {
+        paths: [process.cwd()]
+    });
+    const child = spawn(autocorrect, ['--fix', '--quiet', ...args], {
+        stdio: 'inherit',
+        cwd: process.cwd()
+    });
+    child.on('exit', runPrettier);
+} else {
+    runPrettier();
+}
