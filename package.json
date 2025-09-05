@@ -1,41 +1,37 @@
 {
     "name": "@wtklbm/cli-format",
     "version": "0.1.0",
+    "description": "None",
+    "keywords": [],
     "homepage": "https://github.com/wtklbm/cli-format",
+    "bugs": {
+        "url": "https://github.com/wtklbm/cli-format/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/wtklbm/cli-format.git"
+    },
+    "license": "MIT",
     "author": {
         "name": "wtklbm",
         "email": "wtklbm@gmail.com",
         "url": "https://github.com/wtklbm"
     },
     "contributors": [],
-    "description": "None",
     "main": "dist/index.js",
-    "files": [
-        "dist"
-    ],
-    "license": "MIT",
-    "engines": {},
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/wtklbm/cli-format.git"
-    },
-    "bugs": {
-        "url": "https://github.com/wtklbm/cli-format/issues"
-    },
-    "keywords": [],
-    "packageManager": "npm@latest",
-    "publishConfig": {
-        "registry": "https://npm.pkg.github.com/"
-    },
     "bin": {
         "format": "./bin/format.js"
     },
+    "files": [
+        "dist"
+    ],
     "dependencies": {
-        "@ianvs/prettier-plugin-sort-imports": "^4.6.3",
+        "@ianvs/prettier-plugin-sort-imports": "^4.7.0",
         "@prettier/plugin-oxc": "^0.0.4",
         "@prettier/plugin-xml": "^3.4.2",
+        "autocorrect-node": "^2.14.0",
+        "minimist": "^1.2.8",
         "prettier": "^3.6.2",
-        "prettier-plugin-autocorrect": "^0.4.3",
         "prettier-plugin-embed": "^0.5.0",
         "prettier-plugin-ember-template-tag": "^2.1.0",
         "prettier-plugin-ini": "^1.3.0",
@@ -47,5 +43,10 @@
         "prettier-plugin-sql": "^0.19.2",
         "prettier-plugin-tailwindcss": "^0.6.14",
         "prettier-plugin-toml": "^2.0.6"
+    },
+    "packageManager": "npm@latest",
+    "engines": {},
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/"
     }
 }
