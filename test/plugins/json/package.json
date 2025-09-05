@@ -1,0 +1,35 @@
+{
+"author": {
+    "email": "test@example.com",
+    "name": "Test Author"
+},
+"bugs": {
+    "url": "https://github.com/test/test-package/issues"
+},
+"dependencies": {
+    "axios": "^0.27.0",
+    "lodash": "^4.17.21",
+    "react": "^18.0.0"
+},
+"description": "A test package",
+"devDependencies": {
+    "jest": "^28.0.0",
+    "typescript": "^4.6.0",
+    "webpack": "^5.70.0"
+},
+"homepage": "https://github.com/test/test-package#readme",
+"keywords": ["example", "package", "test"],
+"license": "MIT",
+"main": "index.js",
+"name": "test-package",
+"repository": {
+    "type": "git",
+    "url": "https://github.com/test/test-package.git"
+},
+"scripts": {
+    "build": "webpack",
+    "start": "node server.js",
+    "test": "jest"
+},
+"version": "1.0.0"
+}

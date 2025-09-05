@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tailwind CSS Test</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+<div class="container mx-auto px-4 py-8">
+<header class="mb-8">
+<h1 class="text-4xl font-bold text-gray-800 mb-2">Tailwind CSS Test</h1>
+<p class="text-lg text-gray-600">Testing Tailwind CSS class ordering</p>
+</header>
+
+<main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
+<h2 class="text-xl font-semibold text-gray-800 mb-3">Card Title 1</h2>
+<p class="text-gray-600 mb-4">This is a test card with various Tailwind CSS classes to test the ordering plugin.</p>
+<div class="flex items-center justify-between">
+    <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Tag 1</span>
+    <button class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded transition-colors duration-200">
+        Action
+    </button>
+</div>
+</div>
+
+<!-- Card 2 -->
+<div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
+<h2 class="text-xl font-semibold text-gray-800 mb-3">Card Title 2</h2>
+<p class="text-gray-600 mb-4">Another test card with different utility classes to verify proper ordering.</p>
+<div class="flex items-center justify-between">
+    <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Tag 2</span>
+    <button class="bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-4 rounded transition-colors duration-200">
+        Action
+    </button>
+</div>
+</div>
+
+<!-- Card 3 -->
+<div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
+<h2 class="text-xl font-semibold text-gray-800 mb-3">Card Title 3</h2>
+<p class="text-gray-600 mb-4">Third card with responsive classes and pseudo-classes for testing.</p>
+<div class="flex items-center justify-between">
+    <span class="inline-block bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Tag 3</span>
+    <button class="bg-purple-500 hover:bg-purple-600 text-white font-medium py-2 px-4 rounded transition-colors duration-200">
+        Action
+    </button>
+</div>
+</div>
+</main>
+
+<section class="mt-12 bg-white rounded-lg shadow-md p-6">
+<h2 class="text-2xl font-bold text-gray-800 mb-6">Form Example</h2>
+<form class="space-y-4">
+<div>
+    <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+    <input type="text" id="name" name="name" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Enter your name">
+</div>
+<div>
+    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+    <input type="email" id="email" name="email" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Enter your email">
+</div>
+<div>
+    <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+    <textarea id="message" name="message" rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Enter your message"></textarea>
+</div>
+<button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md transition-colors duration-200">
+    Submit
+</button>
+</form>
+</section>
+
+<footer class="mt-12 text-center text-gray-600">
+<p>&copy; 2023 Tailwind CSS Test. All rights reserved.</p>
+</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+{{!-- This is a test Ember template --}}
+
+<div class="user-profile">
+  <h2>{{@user.name}}</h2>
+  <p>Email: {{@user.email}}</p>
+
+  {{#if @user.isAdmin}}
+    <div class="admin-badge">Administrator</div>
+  {{/if}}
+
+  <div class="user-stats">
+    <span>Posts: {{@user.posts.length}}</span>
+    <span>Comments: {{@user.comments.length}}</span>
+  </div>
+
+  {{#each @user.posts as |post|}}
+    <article class="post">
+      <h3>{{post.title}}</h3>
+      <p>{{post.excerpt}}</p>
+      <a href={{post.url}}>Read more</a>
+    </article>
+  {{/each}}
+
+  {{#let (format-date @user.createdAt) as |formattedDate|}}
+    <p>Member since: {{formattedDate}}</p>
+  {{/let}}
+
+  <button
+    type="button"
+    {{on "click" this.editProfile}}
+    disabled={{this.isEditing}}
+  >
+    {{#if this.isEditing}}
+      Saving...
+    {{else}}
+      Edit Profile
+    {{/if}}
+  </button>
+
+  {{#in-element this.modalContainer}}
+    {{#if this.showModal}}
+      <div class="modal">
+        <h3>Edit Profile</h3>
+        {{yield}}
+      </div>
+    {{/if}}
+  {{/in-element}}
+</div>
