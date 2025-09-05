@@ -4,8 +4,9 @@ const { spawn } = require('child_process');
 const minimist = require('minimist');
 
 const argv = minimist(process.argv.slice(2), {
-    boolean: ['autocorrect', 'help', 'h'],
+    boolean: ['c', 'autocorrect', 'h', 'help'],
     alias: {
+        c: 'autocorrect',
         h: 'help'
     }
 });
@@ -25,8 +26,8 @@ function showHelp() {
 Usage: format [options] [files...]
 
 Options:
-  --autocorrect    Run autocorrect before prettier
-  -h, --help       Show help information
+  -c, --autocorrect    Run autocorrect before prettier
+  -h, --help           Show help information
 
 Examples:
   format                    Format all files in current directory
