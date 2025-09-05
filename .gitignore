@@ -97,10 +97,8 @@ typings/
 tmp/
 temp/
 
-
 # logs
 npm-debug.log
-
 
 ### VisualStudioCode
 .VSCodeCounter/
@@ -111,7 +109,6 @@ npm-debug.log
 !.vscode/extensions.json
 .history
 
-
 ### JetBrains
 .idea_modules/
 .idea
@@ -120,7 +117,6 @@ npm-debug.log
 
 # CMake
 cmake-build-*/
-
 
 # 基于文件的项目格式
 *.iws
@@ -135,7 +131,6 @@ com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 fabric.properties
-
 
 ### Linux
 
@@ -156,7 +151,6 @@ fabric.properties
 # 为了安全起见，请勿发布以下文件
 system/expressionengine/config/database.php
 system/expressionengine/config/config.php
-
 
 ### macOS
 
@@ -191,7 +185,6 @@ sized/
 thumbs/
 _thumbs/
 */expressionengine/cache/*
-
 
 ### Windows
 
