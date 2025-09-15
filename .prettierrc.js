@@ -109,7 +109,7 @@ module.exports = {
         // 注意：此插件可能存在兼容性问题，如遇到问题可禁用
         // https://github.com/un-ts/prettier/blob/master/packages/autocorrect
         //'prettier-plugin-autocorrect'
-    ],
+    ].map(m => require.resolve(m)),
 
     // 控制导入顺序和格式的主要方法 importOrder 是字符串格式的正则表达式集合，以及一些可以使用的"特殊情况"字符串
     /** @type {import('@ianvs/prettier-plugin-sort-imports').PluginConfig.importOrder} */
