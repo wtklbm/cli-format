@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+const { join } = require('path');
 const { spawn } = require('child_process');
 const minimist = require('minimist');
 
@@ -37,25 +38,33 @@ Examples:
 `);
 }
 
+const rootDir = join(__dirname, '..');
+const currentDir = process.cwd();
+
 function runPrettier() {
     const prettier = require.resolve('.bin/prettier', {
-        paths: [process.cwd()]
+        paths: [rootDir]
     });
-    const child = spawn(prettier, ['--write', ...args], {
-        stdio: 'inherit',
-        cwd: process.cwd()
-    });
+
+    const child = spawn(
+        prettier,
+        ['--config', join(rootDir, '.prettierrc.js'), '--write', ...args],
+        {
+            stdio: 'inherit',
+            cwd: currentDir
+        }
+    );
 
     child.on('exit', code => process.exit(code));
 }
 
 if (argv.autocorrect) {
     const autocorrect = require.resolve('.bin/autocorrect', {
-        paths: [process.cwd()]
+        paths: [rootDir]
     });
     const child = spawn(autocorrect, ['--fix', '--quiet', ...args], {
         stdio: 'inherit',
-        cwd: process.cwd()
+        cwd: currentDir
     });
     child.on('exit', runPrettier);
 } else {
