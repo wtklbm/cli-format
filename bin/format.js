@@ -39,7 +39,7 @@ Examples:
 
 function runPrettier() {
     const prettier = require.resolve('.bin/prettier', {
-        paths: [process.cwd()]
+        paths: [require('path').join(__dirname, '..')]
     });
     const child = spawn(prettier, ['--write', ...args], {
         stdio: 'inherit',
@@ -51,7 +51,7 @@ function runPrettier() {
 
 if (argv.autocorrect) {
     const autocorrect = require.resolve('.bin/autocorrect', {
-        paths: [process.cwd()]
+        paths: [require('path').join(__dirname, '..')]
     });
     const child = spawn(autocorrect, ['--fix', '--quiet', ...args], {
         stdio: 'inherit',
